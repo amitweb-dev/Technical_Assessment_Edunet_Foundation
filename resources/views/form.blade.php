@@ -2,19 +2,23 @@
 @section('content')
 <div class="app-content">
     <div class="side-app">
-        <div class="fb-container">
+        <!--Page-Header-->
+        <div class="page-header" style="margin-top: 20px;">
+            <h4 class="page-title">{{$title}}</h4>
+        </div>
+        <div class="fb-container" style="margin-top: 15px;">
             <div class="fb-canvas" id="fb-canvas">
                 <div class="fb-empty-state" id="fb-empty-state">
-                    Drag elements from the right panel to build your form ->
+                    Drag elements from the right panel to build your form
                 </div>
             </div>
             
             <div class="fb-sidebar">
-                <div class="fb-header" style="padding: 15px; border-bottom: 1px solid #dee2e6;">
+                <!-- <div class="fb-header" style="padding: 15px; border-bottom: 1px solid #dee2e6;">
                     <input type="text" class="fb-title-input" id="form-title" placeholder="Form Title" value="Untitled Form" maxlength="200">
                     <div class="fb-char-counter"><span id="title-char-count">13</span>/200 chars</div>
                     <div style="font-size:12px; color:#6c757d; margin-top:5px;">Form Submission URL: /api/submit</div>
-                </div>
+                </div> -->
                 
                 <div class="fb-tabs">
                     <div class="fb-tab active" id="tab-editor">Form Editor</div>

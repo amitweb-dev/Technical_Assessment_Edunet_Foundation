@@ -51,6 +51,7 @@
 
 @include('includes.js')
 
+</div>
 </body>
 
 </html>

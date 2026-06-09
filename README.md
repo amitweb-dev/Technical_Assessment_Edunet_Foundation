@@ -8,6 +8,29 @@ A drag-and-drop Form Builder built with Laravel Blade components, Vanilla CSS, a
 2. Run `php artisan serve`
 3. Access the application at `http://localhost:8000` (or your configured port).
 
+## Files Changed
+
+Here is a step-by-step breakdown of the files modified and created for this assignment:
+
+1. **`resources/views/layouts/admin.blade.php`**
+   - Included SortableJS and FontAwesome via CDN.
+   - Fixed missing `</div>` tag for the `.page` container.
+2. **`resources/views/includes/navigation.blade.php`**
+   - Removed premature closing `</body>` and `</div>` tags to fix the layout overlap issue where the sidebar and header would hide the form builder canvas.
+3. **`resources/views/includes/css.blade.php`**
+   - Linked the new `form-builder.css` file to the layout.
+4. **`public/css/form-builder.css` (NEW)**
+   - Added all Vanilla CSS3 styling for the drag-and-drop form, canvas area, field settings, tabs, and layout grids.
+5. **`resources/views/components/*.blade.php` (NEW)**
+   - Created 18 individual Laravel Blade components (e.g. `text-input.blade.php`, `dropdown.blade.php`, etc.) for every field type. These provide the HTML skeleton cloned into the canvas without raw HTML string manipulation.
+6. **`resources/views/form.blade.php`**
+   - Rewrote the main content view to host the drag-and-drop `.fb-canvas` and `.fb-sidebar` (palette).
+   - Added `<template>` tags at the bottom to hold the pre-rendered Blade components for Javascript cloning.
+   - Included the `form-builder.js` script.
+7. **`public/js/form-builder.js` (NEW)**
+   - Built the entire Form Builder logic in Vanilla Javascript.
+   - Handled `SortableJS` drag and drop events, dynamic UI re-rendering, settings updates (Label, Placeholder, Options mapping), and LocalStorage persistence.
+
 ## DnD Library Choice & Rationale
 
 **SortableJS**

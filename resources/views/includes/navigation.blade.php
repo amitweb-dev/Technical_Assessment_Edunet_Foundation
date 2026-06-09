@@ -39,7 +39,7 @@
                                                 <!-- <img src="" alt="profile-img" class="avatar ms-2">  -->
                                                 <strong
                                                     class="text-dark"
-                                                    style="margin: 0px 10px;">Guest User</strong>
+                                                    style="margin: 0px 10px;">User Name</strong>
                                             </a>
                                         </div>
                                     </div>
@@ -49,22 +49,16 @@
                     </div>
             </div>
         </div>
-        <!--/App-Header-->
+    <!--/App-Header-->
 
-        <!-- Sidebar menu-->
-        <div class=" app-sidebar__overlay" data-bs-toggle="sidebar">
-        </div>
-            <aside class="app-sidebar doc-sidebar">
-                <a class="header-brand sidemenu-header-brand" href="{{ url('/') }}">
-                    <img src="{{ asset('your_logo_here.png') }}"
-                        class="header-brand-img desktop-logo" alt="">
-                    <span style="color:#ffffff; font-size: 24px;" class="header-brand-img mobile-logo">LMS</span>
-                </a>
+    <!-- Sidebar menu-->
+    <div class="app-sidebar__overlay" data-bs-toggle="sidebar"></div>
+    <aside class="app-sidebar doc-sidebar">
+        <a class="header-brand sidemenu-header-brand" href="{{ url('/') }}">
+            <img src="{{ asset('your_logo_here.png') }}" class="header-brand-img desktop-logo" alt="">
+            <span style="color:#ffffff; font-size: 24px;" class="header-brand-img mobile-logo">Interview</span>
+        </a>
 
-                <ul class="side-menu">
-
-                </ul>
-            </aside>
-        </div>
-    </div>
-</body>
+        <ul class="side-menu">
+        </ul>
+    </aside>

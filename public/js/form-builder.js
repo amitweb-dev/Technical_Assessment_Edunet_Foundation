@@ -181,17 +181,17 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const optionsEl = content.querySelector('[data-bind-options="options"]');
             if (optionsEl) {
-                optionsEl.innerHTML = field.options.map(o => \`<option>\${o}</option>\`).join('');
+                optionsEl.innerHTML = field.options.map(o => `<option>${o}</option>`).join('');
             }
 
             const radiosEl = content.querySelector('[data-bind-radios="options"]');
             if (radiosEl) {
-                radiosEl.innerHTML = field.options.map((o, idx) => \`<div><input type="radio" name="temp_\${field.id}"> \${o}</div>\`).join('');
+                radiosEl.innerHTML = field.options.map((o, idx) => `<div><input type="radio" name="temp_${field.id}"> ${o}</div>`).join('');
             }
 
             const checkEl = content.querySelector('[data-bind-checkboxes="options"]');
             if (checkEl) {
-                checkEl.innerHTML = field.options.map(o => \`<div><input type="checkbox"> \${o}</div>\`).join('');
+                checkEl.innerHTML = field.options.map(o => `<div><input type="checkbox"> ${o}</div>`).join('');
             }
 
             card.appendChild(actions);
@@ -213,37 +213,37 @@ document.addEventListener('DOMContentLoaded', () => {
         if (!field) return;
 
         let html = '';
-        html += \`<div class="fb-form-group"><label class="fb-form-label">Label</label><input type="text" class="fb-form-control" id="opt-label" value="\${field.label}"></div>\`;
+        html += `<div class="fb-form-group"><label class="fb-form-label">Label</label><input type="text" class="fb-form-control" id="opt-label" value="${field.label}"></div>`;
         
         const typesWithPlaceholder = ['text-input', 'text-area', 'number-input', 'email-input', 'phone-input'];
         if (typesWithPlaceholder.includes(field.type)) {
-            html += \`<div class="fb-form-group"><label class="fb-form-label">Placeholder</label><input type="text" class="fb-form-control" id="opt-placeholder" value="\${field.placeholder || ''}"></div>\`;
+            html += `<div class="fb-form-group"><label class="fb-form-label">Placeholder</label><input type="text" class="fb-form-control" id="opt-placeholder" value="${field.placeholder || ''}"></div>`;
         }
 
         const typesWithMinMax = ['text-input', 'text-area'];
         if (typesWithMinMax.includes(field.type)) {
-            html += \`<div class="fb-form-group"><label class="fb-form-label">Min Characters</label><input type="number" class="fb-form-control" id="opt-min" value="\${field.minChars || ''}"></div>\`;
-            html += \`<div class="fb-form-group"><label class="fb-form-label">Max Characters</label><input type="number" class="fb-form-control" id="opt-max" value="\${field.maxChars || ''}"></div>\`;
+            html += `<div class="fb-form-group"><label class="fb-form-label">Min Characters</label><input type="number" class="fb-form-control" id="opt-min" value="${field.minChars || ''}"></div>`;
+            html += `<div class="fb-form-group"><label class="fb-form-label">Max Characters</label><input type="number" class="fb-form-control" id="opt-max" value="${field.maxChars || ''}"></div>`;
         }
 
         const typesWithOptions = ['dropdown', 'radio-buttons', 'checkboxes'];
         if (typesWithOptions.includes(field.type)) {
-            html += \`<div class="fb-form-group"><label class="fb-form-label">Options</label><div id="opt-options-container">\`;
+            html += `<div class="fb-form-group"><label class="fb-form-label">Options</label><div id="opt-options-container">`;
             field.options.forEach((opt, idx) => {
-                html += \`<div class="fb-option-row"><input type="text" class="fb-form-control opt-option-val" data-idx="\${idx}" value="\${opt}"><button class="fb-btn fb-btn-outline remove-opt" data-idx="\${idx}"><i class="fa fa-times"></i></button></div>\`;
+                html += `<div class="fb-option-row"><input type="text" class="fb-form-control opt-option-val" data-idx="${idx}" value="${opt}"><button class="fb-btn fb-btn-outline remove-opt" data-idx="${idx}"><i class="fa fa-times"></i></button></div>`;
             });
-            html += \`</div><button class="fb-btn fb-btn-outline" id="add-opt-btn" style="width:100%">Add Option</button></div>\`;
+            html += `</div><button class="fb-btn fb-btn-outline" id="add-opt-btn" style="width:100%">Add Option</button></div>`;
         }
 
-        html += \`<div class="fb-form-group"><label><input type="checkbox" id="opt-required" \${field.required ? 'checked' : ''}> Required</label></div>\`;
-        html += \`<div class="fb-form-group"><label class="fb-form-label">CSS Class</label><input type="text" class="fb-form-control" id="opt-class" value="\${field.cssClass || ''}"></div>\`;
+        html += `<div class="fb-form-group"><label><input type="checkbox" id="opt-required" ${field.required ? 'checked' : ''}> Required</label></div>`;
+        html += `<div class="fb-form-group"><label class="fb-form-label">CSS Class</label><input type="text" class="fb-form-control" id="opt-class" value="${field.cssClass || ''}"></div>`;
         
         const typesWithDefault = ['text-input', 'number-input', 'email-input', 'hidden-field'];
         if (typesWithDefault.includes(field.type)) {
-            html += \`<div class="fb-form-group"><label class="fb-form-label">Default Value</label><input type="text" class="fb-form-control" id="opt-default" value="\${field.defaultValue || ''}"></div>\`;
+            html += `<div class="fb-form-group"><label class="fb-form-label">Default Value</label><input type="text" class="fb-form-control" id="opt-default" value="${field.defaultValue || ''}"></div>`;
         }
 
-        html += \`<div style="margin-top:20px; border-top:1px solid #dee2e6; padding-top:20px;"><button class="fb-btn" style="background:#dc3545; color:#fff; width:100%; border:none;" id="opt-remove">Remove Element</button></div>\`;
+        html += `<div style="margin-top:20px; border-top:1px solid #dee2e6; padding-top:20px;"><button class="fb-btn" style="background:#dc3545; color:#fff; width:100%; border:none;" id="opt-remove">Remove Element</button></div>`;
 
         optionsForm.innerHTML = html;
 

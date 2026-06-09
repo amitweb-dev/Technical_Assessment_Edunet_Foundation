@@ -33,21 +33,21 @@
 @yield('content')
 
 <!--Footer-->
-<footer class="footer">
+<!-- <footer class="footer">
 	<div class="container">
 		<div class="row align-items-center flex-row-reverse">
 					<div class="col-lg-12 col-sm-12 mt-3 mt-lg-0 text-center">
-				Copyright © {{date('Y')}} <a href="javascript:void(0)" class="fs-14 text-primary">LMS</a>.
+				Copyright © {{date('Y')}} <a href="javascript:void(0)" class="fs-14 text-primary"></a>.
 				All rights reserved. 
 			</div>
 		</div>
 	</div>
-</footer>
+</footer> -->
 <!--/Footer-->
 </div>
 
 <!-- Back to top -->
-<a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a>
+<!-- <a href="#top" id="back-to-top"><i class="fa fa-long-arrow-up"></i></a> -->
 
 @include('includes.js')
 

@@ -2,12 +2,6 @@
 
 A drag-and-drop Form Builder built with Laravel Blade components, Vanilla CSS, and SortableJS. No backend API calls are required for the form building interactions.
 
-## Setup Steps
-
-1. Run `composer upgrade`
-2. Run `php artisan serve`
-3. Access the application at `http://localhost:8000` (or your configured port).
-
 ## Files Changed
 
 Here is a step-by-step breakdown of the files modified and created for this assignment:

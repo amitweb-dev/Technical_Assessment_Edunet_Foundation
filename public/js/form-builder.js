@@ -82,25 +82,25 @@ document.addEventListener('DOMContentLoaded', () => {
         addFieldsPanel.classList.add('fb-hidden');
     }
 
-    new Sortable(palette, {
-        group: {
-            name: 'shared',
-            pull: 'clone',
-            put: false
-        },
-        animation: 150,
-        sort: false
-    });
+    if (palette) {
+        new Sortable(palette, {
+            group: {
+                name: 'shared',
+                pull: 'clone',
+                put: false
+            },
+            animation: 150,
+            sort: false
+        });
+    }
 
     const sortableCanvas = new Sortable(canvas, {
         group: 'shared',
         animation: 150,
-        handle: '.fb-drag-handle',
         onAdd: function (evt) {
             const itemEl = evt.item;
             const type = itemEl.getAttribute('data-type');
-            itemEl.parentNode.removeChild(itemEl);
-
+            
             if (type) {
                 const newField = {
                     id: 'field_' + Date.now(),
@@ -116,18 +116,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
                 
                 formFields.splice(evt.newIndex, 0, newField);
-                renderCanvas();
+                itemEl.style.display = 'none'; // visually hide immediately
                 saveState();
-                editField(newField.id);
+                setTimeout(() => {
+                    itemEl.remove();
+                    renderCanvasSafe();
+                    editField(newField.id);
+                }, 10);
+            } else {
+                itemEl.remove();
             }
         },
         onUpdate: function (evt) {
             const movedItem = formFields.splice(evt.oldIndex, 1)[0];
             formFields.splice(evt.newIndex, 0, movedItem);
-            renderCanvas();
             saveState();
+            setTimeout(() => {
+                renderCanvasSafe();
+            }, 10);
         }
     });
+
+    function renderCanvasSafe() {
+        try {
+            renderCanvas();
+        } catch (err) {
+            console.error("Error rendering canvas:", err);
+        }
+    }
 
     function getDefaultLabel(type) {
         const words = type.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1));

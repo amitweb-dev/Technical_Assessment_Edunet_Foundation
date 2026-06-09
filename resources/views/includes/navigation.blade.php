@@ -56,7 +56,7 @@
     <aside class="app-sidebar doc-sidebar">
         <a class="header-brand sidemenu-header-brand" href="{{ url('/') }}">
             <img src="{{ asset('your_logo_here.png') }}" class="header-brand-img desktop-logo" alt="">
-            <span style="color:#ffffff; font-size: 24px;" class="header-brand-img mobile-logo">Interview</span>
+            <span style="color:#ffffff; font-size: 24px;" class="header-brand-img mobile-logo">logo</span>
         </a>
 
         <ul class="side-menu">

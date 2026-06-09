@@ -91,5 +91,5 @@
 <template id="tpl-location-city"><x-location-city /></template>
 <template id="tpl-location-state-city"><x-location-state-city /></template>
 
-<script src="{{ asset('js/form-builder.js') }}"></script>
+<script src="{{ asset('js/form-builder.js') }}?v={{ time() }}"></script>
 @endsection

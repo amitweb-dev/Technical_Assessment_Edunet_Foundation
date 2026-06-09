@@ -95,12 +95,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const sortableCanvas = new Sortable(canvas, {
         group: 'shared',
         animation: 150,
-        handle: '.fb-drag-handle',
         onAdd: function (evt) {
             const itemEl = evt.item;
             const type = itemEl.getAttribute('data-type');
-            itemEl.parentNode.removeChild(itemEl);
-
+            
             if (type) {
                 const newField = {
                     id: 'field_' + Date.now(),
@@ -116,16 +114,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 };
                 
                 formFields.splice(evt.newIndex, 0, newField);
-                renderCanvas();
                 saveState();
-                editField(newField.id);
+                setTimeout(() => {
+                    itemEl.remove();
+                    renderCanvas();
+                    editField(newField.id);
+                }, 10);
             }
         },
         onUpdate: function (evt) {
             const movedItem = formFields.splice(evt.oldIndex, 1)[0];
             formFields.splice(evt.newIndex, 0, movedItem);
-            renderCanvas();
             saveState();
+            setTimeout(() => {
+                renderCanvas();
+            }, 10);
         }
     });
 

@@ -1,0 +1,1 @@
+<div class="fb-form-group"><label class="fb-form-label" data-bind="label">Date Picker</label><input type="date" class="fb-form-control"></div>

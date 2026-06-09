@@ -1,0 +1,1 @@
+<div class="fb-form-group" style="opacity:0.5; background:#eee; padding:5px;"><label class="fb-form-label" data-bind="label">Hidden Field</label><input type="hidden"></div>

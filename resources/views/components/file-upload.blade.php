@@ -1,0 +1,1 @@
+<div class="fb-form-group"><label class="fb-form-label" data-bind="label">File Upload</label><input type="file" class="fb-form-control"></div>

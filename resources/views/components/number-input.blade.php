@@ -1,0 +1,1 @@
+<div class="fb-form-group"><label class="fb-form-label" data-bind="label">Number Input</label><input type="number" class="fb-form-control" data-bind-attr="placeholder" placeholder="Enter number..."></div>

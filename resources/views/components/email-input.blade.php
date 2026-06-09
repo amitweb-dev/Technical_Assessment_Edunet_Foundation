@@ -1,0 +1,1 @@
+<div class="fb-form-group"><label class="fb-form-label" data-bind="label">Email Input</label><input type="email" class="fb-form-control" data-bind-attr="placeholder" placeholder="Enter email..."></div>

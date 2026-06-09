@@ -1,0 +1,1 @@
+<div class="fb-form-group"><label class="fb-form-label" data-bind="label">Checkboxes</label><div data-bind-checkboxes="options"><div><input type="checkbox"> Option 1</div><div><input type="checkbox"> Option 2</div></div></div>

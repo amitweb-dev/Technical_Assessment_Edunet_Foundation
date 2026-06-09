@@ -1,0 +1,1 @@
+<div class="fb-form-group"><div style="display:flex; gap:10px;"><div style="flex:1;"><label class="fb-form-label" data-bind="label">State</label><select class="fb-form-control"><option>Select State...</option></select></div><div style="flex:1;"><label class="fb-form-label">City</label><select class="fb-form-control"><option>Select City...</option></select></div></div></div>

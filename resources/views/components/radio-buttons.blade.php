@@ -1,0 +1,1 @@
+<div class="fb-form-group"><label class="fb-form-label" data-bind="label">Radio Buttons</label><div data-bind-radios="options"><div><input type="radio" name="temp"> Option 1</div><div><input type="radio" name="temp"> Option 2</div></div></div>

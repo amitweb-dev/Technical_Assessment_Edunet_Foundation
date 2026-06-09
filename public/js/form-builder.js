@@ -34,15 +34,17 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const savedTitle = localStorage.getItem('formBuilderTitle');
-    if (savedTitle) {
+    if (savedTitle && titleInput && titleCharCount) {
         titleInput.value = savedTitle;
         titleCharCount.innerText = savedTitle.length;
     }
 
-    titleInput.addEventListener('input', (e) => {
-        titleCharCount.innerText = e.target.value.length;
-        saveState();
-    });
+    if (titleInput && titleCharCount) {
+        titleInput.addEventListener('input', (e) => {
+            titleCharCount.innerText = e.target.value.length;
+            saveState();
+        });
+    }
 
     tabEditor.addEventListener('click', () => {
         tabEditor.classList.add('active');
@@ -326,29 +328,37 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function saveState() {
         localStorage.setItem('formBuilderState', JSON.stringify(formFields));
-        localStorage.setItem('formBuilderTitle', titleInput.value);
+        if (titleInput) {
+            localStorage.setItem('formBuilderTitle', titleInput.value);
+        }
     }
 
-    btnNext.addEventListener('click', () => {
-        const schema = {
-            title: titleInput.value,
-            fields: formFields
-        };
-        alert(JSON.stringify(schema, null, 2));
-        console.log(schema);
-    });
+    if (btnNext) {
+        btnNext.addEventListener('click', () => {
+            const schema = {
+                title: titleInput ? titleInput.value : 'Untitled Form',
+                fields: formFields
+            };
+            alert(JSON.stringify(schema, null, 2));
+            console.log(schema);
+        });
+    }
 
-    btnCancel.addEventListener('click', () => {
-        if (confirm("Are you sure you want to clear the form?")) {
-            formFields = [];
-            currentEditId = null;
-            titleInput.value = "Untitled Form";
-            titleCharCount.innerText = "13";
-            openAddFields();
-            renderCanvas();
-            saveState();
-        }
-    });
+    if (btnCancel) {
+        btnCancel.addEventListener('click', () => {
+            if (confirm("Are you sure you want to clear the form?")) {
+                formFields = [];
+                currentEditId = null;
+                if (titleInput) {
+                    titleInput.value = "Untitled Form";
+                    titleCharCount.innerText = "13";
+                }
+                openAddFields();
+                renderCanvasSafe();
+                saveState();
+            }
+        });
+    }
 
     renderCanvas();
 });

@@ -2,11 +2,8 @@
 @section('content')
 <div class="app-content">
     <div class="side-app">
-        <!--Page-Header-->
-        <div class="page-header" style="margin-top: 20px;">
-            <h4 class="page-title">{{$title}}</h4>
-        </div>
-        <div class="fb-container" style="margin-top: 15px;">
+        <!--Page-Header-->        
+        <div class="fb-container" style="margin-top: 55px;">
             <div class="fb-canvas" id="fb-canvas">
                 <div class="fb-empty-state" id="fb-empty-state">
                     Drag elements from the right panel to build your form
